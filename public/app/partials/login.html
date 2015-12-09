@@ -1,0 +1,16 @@
+
+	<div class="col-md-6 col-md-offset-3">
+		<div ng-if="login_success">
+			<h4>{{ login_message }}</h4>
+		</div>
+
+		<div ng-if="showLoginError">
+			<h4>{{ errorMsg }}</h4>
+		</div>
+		
+		<div ng-if="!login_success">
+			<input type="text" ng-model="user.username" placeholder="Enter username" />
+			<input type="password" ng-model="user.password" placeholder="Enter password" />
+			<button ng-click="LoginUser()">Login</button>
+		</div>
+    </div>

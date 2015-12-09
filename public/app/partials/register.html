@@ -1,0 +1,14 @@
+<div id="registerBox">
+	<div class="col-md-6 col-md-offset-3">
+		<div ng-if="register_success">
+			<h4>{{ register_message }}</h4>
+		</div>
+		
+		<div ng-hide="register_success">
+			<input type="text" ng-model="user.username" placeholder="Enter username" />
+			<input type="password" ng-model="user.password" placeholder="Enter password" />
+			<input type="email" ng-model="user.email" placeholder="Enter email" /><br />
+			<button ng-click="RegisterUser()">Register</button>
+		</div>
+    </div>
+</div>
