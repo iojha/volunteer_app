@@ -34,6 +34,21 @@
             });
         });
     };
+
+    var FindOrgByName = function(collectionName, org_name, callback){
+        dbConnect.ConnectToDB(function(db, closeDB){
+           
+        db.collection(collectionName).find(
+            { org_name: org_name }
+        ).toArray(function(err, data){
+                if(err){
+                    return console.log(err);
+                }
+                callback(data);
+                closeDB();
+            });
+        });
+    };
     
     var FindUserByID = function(collectionName, id, callback){
         dbConnect.ConnectToDB(function(db, closeDB){
@@ -64,19 +79,6 @@
         });
     };
     
-    var FindSingle = function(collectionName, id, callback){
-        dbConnect.ConnectToDB(function(db, closeDB){
-        db.collection(collectionName).find({ _id: new ObjectID(id) }).toArray(
-            function(err, data){
-                if(err){
-                    closeDB();
-                    return console.log(err);
-                }
-                callback(data)
-                closeDB();
-            });
-        });
-    };
     
     var CreateThing = function(collectionName, model, callback){
         dbConnect.ConnectToDB(function(db, closeDB){
@@ -143,6 +145,20 @@
         });
     
     };
+
+    var SearchByOrgName = function(collectionName, orgName, callback){
+        dbConnect.ConnectToDB(function(db, closeDB){
+        db.collection(collectionName).find({ org_name: orgName }).toArray(
+            function(err, data){
+                if(err){
+                    closeDB();
+                    return console.log(err);
+                }
+                callback(data)
+                closeDB();
+            });
+        });
+    };
     
     dbRepo.FindAllInCollectionAsArray = FindAllInCollectionAsArray;
     dbRepo.FindSingle = FindSingle;
@@ -152,6 +168,7 @@
     dbRepo.FindUserByName = FindUserByName;
     dbRepo.FindUserByID = FindUserByID;
     dbRepo.CreateNewUser = CreateNewUser;
+    dbRepo.SearchByOrgName = SearchByOrgName;
 
 })(
     module.exports, 

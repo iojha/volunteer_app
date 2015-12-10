@@ -24,6 +24,10 @@ angular.module('myApp', [
             templateUrl: 'app/partials/login.html', 
             controller: 'AppCtrl'
         });
+        $routeProvider.when('/searchresults', {
+            templateUrl: 'app/partials/searchresults.html', 
+            controller: 'AppCtrl'
+        });
         
         $routeProvider.otherwise({redirectTo: '/home'});
     }]);

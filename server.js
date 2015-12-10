@@ -101,9 +101,16 @@
             res.json(newUserResponse);
         });
     });
+
+    server.post("/searchresults", function(req, res){
+        mongoRepo.SearchByOrgName("users", req.body.org_name,function(data){
+            res.json({success: data, failure: false});
+            console.log(data);
+        });
+    });
+
     
-    
-    server.listen((process.env.PORT || 8080), (process.env.IP || 'localhost'),
+    server.listen((process.env.PORT || 1338), (process.env.IP || 'localhost'),
     function(){
         console.log(" server online ");
     });

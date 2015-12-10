@@ -1,23 +1,4 @@
-<div class="heading-bar">
-  <ul class="nav pull-right">
-    <li style="display: inline-block !important;" ng-class="{ selected: isActive('/home')}"><a href="#/home"><span class="entypo-pencil"></span>
-                Home</a></li>
-    <li style="display: inline-block !important;" ng-class="{ selected: isActive('/forms')}"><a href="#/forms"><span class="entypo-pencil"></span>
-                Forms</a></li>
-    <li style="display: inline-block !important;" ng-class="{ selected: isActive('/modals')}"><a href="#/modals">
-                Modals</a></li>
-    <li style="display: inline-block !important;" ng-if="!login_success"><a href="#/login" ng-click="LoginUser()">Login</a></li>
-    <li style="display: inline-block !important;" ng-if="!login_success"><a href="#/register" ng-click="Registration()" class="btn btn-modern">Register</a></li>
-  </ul>
-  <!--     <div class="user-bar">
-        
-        </div> -->
-  <div ng-if="login_success">
-    <button class="btn btn-primary" ng-click="LogoutUser()">Logout</button>
-  </div>
-</div>
-</div>
-<div class="row">
+<!--HOMEPAGE-->
   <div id="home">
     <div class="col-md-12 text-center" style="margin-top: 175px;">
       <h1 class="cta">CONNECT</h1>
@@ -25,18 +6,13 @@
       <br />
       <button class="btn btn-cta" style="color: #fff; padding: 10px 10px; height: 40px; border-radius: 0">How it works</button><br />
       <!--Search Bar-->
-      <input type="text" placeholder="search-term"><button class="btn btn-primary">Search</button>
-      <!--End Search Bar-->
-
-      
-      <!--Search Results-->
-      <div class="col-md-12 row" style="height: 200px; background: rgba(0,0,0,.5)">
-
-      <!--->DALLAS: THE DIRECTIVE IS NOT SHOWING UP HERE! HELP! -->
-           <search-results></search-results>
+      <input type="text" placeholder="search-term" ng-model="query" required ng-trim="false"/><br>
+      <a href="#/searchresults"><button class="btn btn-primary">Search</button></a>
+      <br />
+      <div class="weather">
+        
       </div>
-      <!--End Search Results-->
-
     </div>
+
   </div>
-</div>
+
