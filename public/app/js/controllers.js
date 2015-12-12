@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-.controller('AppCtrl', ['$scope', '$resource', '$location', '$http', 'allSearchResults', function ($scope, $resource, $location, $http, allSearchResults) {
+.controller('AppCtrl', ['$scope', '$location', '$http', 'allSearchResults', function ($scope, $location, $http, allSearchResults) {
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
         };
@@ -26,7 +26,7 @@ angular.module('myApp.controllers', [])
                     $scope.login_message = "Howdy " + model.username + "!";
                 } else {
                     $scope.show_error_msg = true;
-                    $scope.errorMsg = "Hmm...did you forget your username or password? They didn't match our records. Please enter them again.";
+                    $scope.errorMsg = "Hmm...";
                     console.log(errorMsg);
                 }
             });

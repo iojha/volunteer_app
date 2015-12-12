@@ -10,10 +10,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/rangeslider.js/dist/rangeslider.min.js"></script>
   <script src="bower_components/flot/jquery.flot.js"></script>
   <script src="bower_components/flot/jquery.flot.pie.js"></script>
+
+
+  <!--Googe maps API-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwl_z0YfK4yPcZ_YYJPSU8lxrxoIKYv_c"></script>
+
   <!-- Bootstrap -->
   <link href="bower_components/bootstrap/less/bootstrap.css" rel="stylesheet">
   <link href="bower_components/css-toggle-switch/dist/toggle-switch.css" rel="stylesheet">
@@ -43,12 +49,7 @@
 
 <li style="display: inline-block !important;" ng-if="!login_success" data-toggle="modal" data-target="#loginPopUp"><button class="btn btn-primary">Login</button></li>
 
-        
-
     <!--end login modal-->
-
-
-
       
       <li style="display: inline-block !important;" ng-if="!login_success"><a href="#/register" ng-click="Registration()" class="btn btn-modern">Register</a></li>
     </ul>
@@ -71,6 +72,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Login</h4>
       </div>
+      
         <div ng-if="login_success">
             <h4>{{ login_message }}</h4>
         </div>

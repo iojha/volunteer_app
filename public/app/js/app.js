@@ -8,7 +8,7 @@ angular.module('myApp', [
     'myApp.filters',
     'myApp.services',
     'myApp.directives',
-    'myApp.controllers'
+    'myApp.controllers',
 ]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/modals', {templateUrl: 'app/partials/modals.html', controller: 'ModalsCtrl'});

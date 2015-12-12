@@ -1,10 +1,12 @@
 (function(express, server, bodyParser, mongoDB, passport, passportLocal, fs,
           cookieParser, expressSession, mongoRepo){
 
+
     server.use(bodyParser.urlencoded({ extended: true }));
     server.use(bodyParser.json());
-    
     server.use(cookieParser());
+
+
     //set up express's session with a secret and options
     server.use(expressSession({ 
         secret: process.env.secretStuffMan || 'IAMBATMAN!!!!@!@!#@!#!',
@@ -61,9 +63,7 @@
     
     
     server.get("/profile", CheckAuth, function(req, res){
-        
-        res.send(req.user.userName);
-        
+        res.send(req.user.userName);  
     });
     
     //Angular sends form data to this route with method of POST
@@ -87,7 +87,6 @@
 
 
     server.post("/register", function(req, res){
-
         var model = {
             name: req.body.name,
             password: req.body.password,
@@ -102,15 +101,8 @@
         });
     });
 
-    server.post("/searchresults", function(req, res){
-        mongoRepo.SearchByOrgName("users", req.body.org_name,function(data){
-            res.json({success: data, failure: false});
-            console.log(data);
-        });
-    });
-
     
-    server.listen((process.env.PORT || 1338), (process.env.IP || 'localhost'),
+    server.listen((process.env.PORT || 8080), (process.env.IP || 'localhost'),
     function(){
         console.log(" server online ");
     });
@@ -123,7 +115,7 @@
     require("passport"),
     require("passport-local"),
     require("fs"),
-    require('cookie-parser'),
-    require('express-session'),
-    require('./mongo_repo')
+    require("cookie-parser"),
+    require("express-session"),
+    require("./mongo_repo")
 );
